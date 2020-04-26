@@ -17,7 +17,7 @@ class Repository {
      * Repository constructor.
      */
     public function __construct() {
-        $this->file_storage_dir = __DIR__ . '/../../loginSessions/';
+        $this->file_storage_dir = __DIR__.'/../loginSessions/';
     }
 
     /**
@@ -45,8 +45,8 @@ class Repository {
         $path = ($this->file_storage_dir . $name);
 
         if ((is_dir($path) && is_writable($path))
-            || (!is_dir($path) && mkdir($path, 0755, true))
-            || chmod($path, 0755)) {
+            || (!is_dir($path) && mkdir($path, 0777, true))
+            || chmod($path, 0777)) {
             return true;
         } else {
             return false;
@@ -61,8 +61,7 @@ class Repository {
      * @return bool
      */
     public function file_exist($folder_name, $filename) {
-        $path = realpath($this->file_storage_dir . $folder_name . '/' . $filename);
-
+        $path = realpath($this->file_storage_dir).'/'.$folder_name . '/' . $filename;
         return file_exists($path);
     }
 }
