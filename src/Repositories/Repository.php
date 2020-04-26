@@ -17,7 +17,7 @@ class Repository {
      * Repository constructor.
      */
     public function __construct() {
-        $this->file_storage_dir = __DIR__ . '../../loginSessions/';
+        $this->file_storage_dir = __DIR__ . '/../../loginSessions/';
     }
 
     /**
